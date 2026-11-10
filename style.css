@@ -258,3 +258,152 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .button { transition: none; }
   .button:hover { transform: none; }
 }
+
+/* V2.3: editorial color and photography beyond the original film. */
+.manifesto, .product-detail, .regulation, .locations {
+  --editorial-ink: #112b4b;
+  --editorial-muted: #385474;
+  background: #e0ecf8;
+  color: var(--editorial-ink);
+}
+.manifesto {
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+}
+.manifesto-image, .product-detail-image { margin: 0; position: relative; overflow: hidden; }
+.manifesto-image picture { display: block; height: 100%; }
+.manifesto-image img { width: 100%; height: 100%; object-fit: cover; object-position: 57% center; }
+.manifesto-image figcaption, .product-detail-image figcaption {
+  position: absolute;
+  bottom: 13px;
+  left: 13px;
+  padding: 7px 9px;
+  background: #081c36;
+  color: #e0f1ff;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+.manifesto-copy { padding: clamp(34px, 6vw, 92px); }
+.manifesto-copy > .eyebrow, .product-detail .eyebrow { color: #185598; }
+.manifesto-copy h2, .product-detail h2 { margin-top: 20px; }
+.manifesto h2 em, .product-detail h2 em, .locations h2 em { color: #185598; }
+.manifesto p, .product-detail p, .regulation p, .resource-list > small { color: var(--editorial-muted); }
+.manifesto .button.outline, .product-detail .button.outline, .regulation .button.outline, .locations .button.outline {
+  border-color: #28568e;
+  color: #143e70;
+}
+.manifesto .button.outline:hover, .product-detail .button.outline:hover, .regulation .button.outline:hover, .locations .button.outline:hover {
+  background: #c8dff5;
+  color: #102d52;
+}
+.equipment-story {
+  background: radial-gradient(ellipse at 76% 50%, #2056a4, #102d5d 42%, #081933 76%);
+}
+.equipment-image { height: clamp(370px, 40vw, 540px); }
+.equipment-copy .eyebrow, .equipment-copy .caption { color: #a5e7ff; }
+.equipment-copy p { color: #d3e4f7; }
+.journey { background: #0a1b34; }
+.journey-rows > a { border-color: #44618a; }
+.journey-rows > a:last-child { border-color: #44618a; }
+.journey-rows > a > span:first-child, .journey-rows > a > span:last-child { color: #76d6ff; }
+.journey-rows p { color: #c0d3e9; }
+.closing { background: #124eac; color: #f6fbff; }
+.closing h2 em { color: #b1e9ff; }
+.closing .button, .form-panel .submit {
+  background: #8ce3ff;
+  color: #0c2b49;
+}
+.closing .button:hover, .form-panel .submit:hover { background: #c5f3ff; color: #0c2b49; }
+.closing p { color: #e5efff; }
+.closing-mail { text-decoration: underline; text-underline-offset: 4px; }
+.footer { background: #071528; }
+
+.service-hero::before {
+  background-image: linear-gradient(90deg, #071930 7%, #0d2954e8 38%, #183d7355), url('./assets/cockpit-v2.jpg');
+}
+.service-hero h1 em { color: #a2ddff; }
+.service-product { height: clamp(340px, 42vw, 535px); }
+.product-detail { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(26px, 7vw, 100px); align-items: center; }
+.product-detail-image { background: #c9e1f5; aspect-ratio: 1.06; border: 1px solid #90aac7; }
+.product-detail-image img { width: 100%; height: 100%; display: block; object-fit: contain; mix-blend-mode: multiply; }
+.service-detail { background: #102b56; }
+.steps article { border-top-color: #61c6ff; }
+.steps p { color: #d3e4fa; }
+.faq { background: #0a1c37; }
+
+.contact-intro h1 em { color: #a6e2ff; }
+.contact-visual {
+  background-image: linear-gradient(90deg, #081a36 8%, #0c254ed9 38%, #12376725), url('./assets/coastal-car-v2.jpg');
+}
+.contact-layout {
+  position: relative;
+  isolation: isolate;
+  background: #0a2042;
+}
+.contact-layout::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #0a2145b8, #081b39f2 68%), url('./assets/cockpit-v2.jpg') 32% center / cover;
+}
+.contact-layout aside > .eyebrow, .contact-layout .contact-line > span { color: #a7e5ff; }
+.contact-layout aside > p, .contact-layout .contact-line p { color: #deebfb; }
+.form-panel {
+  background: #102952;
+  color: #f0f7ff;
+  border-color: #557dac;
+  border-top-color: #66d3ff;
+}
+.form-panel > .eyebrow, .form-panel label > span:not(.consent span) { color: #a3e7ff; }
+.form-panel > p, .form-panel .sensitive-note, .form-panel .consent { color: #d3e4f9; }
+.form-panel .consent input { accent-color: #89ddff; }
+.form-grid input, .form-grid select, .form-grid textarea {
+  background: #f0f6ff;
+  color: #122c4a;
+  border: 1px solid #99b6d3;
+  border-radius: 3px;
+}
+.form-grid input::placeholder, .form-grid textarea::placeholder { color: #506782; opacity: 1; }
+.form-grid input[readonly], .form-grid textarea[readonly], .form-grid select:disabled {
+  background: #dbe8f8;
+  color: #3c5470;
+  opacity: 1;
+}
+.form-panel .error {
+  color: #ffe0e3;
+  background: #54273f;
+  padding: 12px;
+  border-left: 2px solid #ff9eae;
+}
+.locations > .eyebrow, .location-rows article > span { color: #185598; }
+.locations .location-intro, .location-rows .location-name, .location-rows .location-hours, .locations > .fine-print { color: var(--editorial-muted); }
+.location-rows article { border-color: #8fa8c6; }
+.location-rows address { color: var(--editorial-ink); }
+.locations .location-phone, .locations .location-actions a:not(.button) { color: #153f73; text-decoration: underline; text-underline-offset: 3px; }
+.locations .inline-link { color: #153f73; }
+
+@media (max-width: 760px) {
+  .manifesto { grid-template-columns: 1fr; }
+  .manifesto-image { aspect-ratio: 1.65; }
+  .manifesto-copy { padding: 35px 6% 43px; }
+  .equipment-story { background: radial-gradient(ellipse at 50% 74%, #2056a4, #102d5d 43%, #081933 78%); }
+  .equipment-image { height: clamp(315px, 98vw, 440px); }
+  .product-detail { grid-template-columns: minmax(0, 1fr); }
+  .product-detail-image { aspect-ratio: 1.32; }
+  .service-product { height: clamp(300px, 82vw, 425px); }
+  .service-hero::before {
+    background-image: linear-gradient(180deg, #0a2044f5 8%, #1235689c 70%, #0a2044ec), url('./assets/cockpit-mobile.jpg');
+  }
+  .contact-visual {
+    background-image: linear-gradient(90deg, #081a36ec, #122f5f6e), url('./assets/coastal-car-mobile-v2.jpg');
+  }
+  .contact-layout::before {
+    background-image: linear-gradient(180deg, #0a2145a6, #081b39f5 44%), url('./assets/cockpit-mobile.jpg');
+    background-size: auto min(690px, 100%);
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
