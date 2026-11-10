@@ -15,3 +15,246 @@
 .email-label{display:block;font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:inherit;margin-bottom:10px}.contact-email{display:inline-block}.contact-email>span[aria-hidden]{margin-left:18px}.footer-mail .email-label{font-size:8px;margin-bottom:12px}.location-intro{max-width:700px;font-size:14px;color:#c1d3dc;margin:-25px 0 45px}.location-rows{grid-template-columns:repeat(2,minmax(0,1fr));gap:45px 65px}.location-rows article>span{display:block;line-height:1.8;font-size:9px;letter-spacing:.08em}.location-rows .location-name{font-size:12px;color:#c8d9e1;margin:0 0 18px}.location-rows address{font-size:15px;line-height:1.7;font-style:normal;color:#f0f6f7}.location-phone{display:inline-block;font-size:20px;letter-spacing:-.02em;min-height:44px;padding:14px 0 8px}.location-rows .location-hours{font-size:11px;margin:5px 0 17px;color:#b0c3cc}.location-actions{display:flex;align-items:start;flex-wrap:wrap;gap:8px 28px}.location-actions a{font-size:11px;min-height:44px;padding:12px 0;border-bottom:1px solid #6e929f}.location-actions a:first-child{color:#c5edf1}.location-actions a:first-child>span{margin-left:16px}.resource-intro{font-size:12px;color:#496572;margin:0 0 25px}.resource-intro a{font-weight:600}.contact-line p a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.location-rows{grid-template-columns:1fr;gap:32px}.location-intro{font-size:13px;margin:-25px 0 35px}.location-rows address{font-size:15px}.location-actions{gap:8px 24px}.contact-email{font-size:21px}.contact-email>span[aria-hidden]{margin-left:10px}.footer-mail .email-label{font-size:8px}.location-rows h3{margin-top:18px}}
 @media(max-width:360px){.contact-email{font-size:18px}.footer-mail{font-size:20px}.contact-email>span[aria-hidden]{margin-left:7px}}
+
+/* V2.2: persistent contact and a shared visual language across the interior pages. */
+html { scroll-padding-top: 112px; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  height: auto;
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  gap: clamp(12px, 2.2vw, 32px);
+  background: #0b1721;
+  border-bottom: 1px solid #36515f;
+  box-shadow: 0 8px 22px #050d1860;
+}
+.site-header nav {
+  justify-content: center;
+  gap: clamp(14px, 2vw, 28px);
+  font-size: 12px;
+}
+.header-contact {
+  display: grid;
+  gap: 3px;
+  padding-left: 16px;
+  border-left: 1px solid #36515f;
+  font-size: 12px;
+  color: #d3e5eb;
+}
+.header-contact a {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  text-decoration: underline;
+  text-decoration-color: #8baebc;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.header-contact a:first-child { font-weight: 700; color: #f0f8fa; }
+.site-header .nav-cta {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 9px 13px;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.button { font-weight: 700; border-radius: 3px; }
+.button.outline {
+  background: transparent;
+  border: 1px solid #8cb3c1;
+  color: #ecf6f9;
+}
+.button.outline:hover { background: #264654; color: #fff; }
+.product-detail .button.outline, .regulation .button.outline {
+  color: #113846;
+  border-color: #4e7483;
+}
+.product-detail .button.outline:hover, .regulation .button.outline:hover {
+  background: #d6e8e9;
+  color: #0c2530;
+}
+.product-detail a.button { display: inline-flex; padding: 13px 17px; }
+.resource-list .resource-intro .button { display: inline-flex; padding: 12px 16px; text-decoration: none; }
+.care-banner .button, .contact-intro .button { width: fit-content; }
+.location-actions a.button { padding: 10px 13px; gap: 8px; }
+.location-actions a.button > span { margin-left: 0; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid #9bf3ff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #142b37;
+}
+
+.service-hero {
+  isolation: isolate;
+  background: #0b1a24;
+  min-height: 575px;
+}
+.service-hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #0b1821 6%, #0b1821ed 36%, #0b182176 100%),
+              url('./assets/cockpit-v2.jpg') center 55% / cover;
+}
+.service-hero-copy { position: relative; z-index: 1; }
+.service-product { height: clamp(310px, 38vw, 450px); }
+.service-product img { filter: drop-shadow(0 25px 32px #000c); }
+.service-hero-label { color: #e2f2f7; text-align: right; }
+.product-detail {
+  background: linear-gradient(140deg, #d6e2df, #edf1ea 50%);
+  grid-template-columns: minmax(160px, .6fr) minmax(0, 1.4fr);
+}
+.service-detail {
+  background: radial-gradient(ellipse at top right, #234b59, #101e29 60%);
+}
+.steps article { border-top: 2px solid #77bac6; }
+.steps article > span { color: #a3e3ed; }
+
+.contact-intro {
+  isolation: isolate;
+  display: grid;
+  justify-items: start;
+  min-height: 440px;
+  align-content: center;
+  background: #0b1924;
+}
+.contact-visual {
+  z-index: -1;
+  inset: 0;
+  width: auto;
+  height: auto;
+  opacity: 1;
+  background: linear-gradient(90deg, #0b1924 8%, #0b1924ec 37%, #0b192432 100%),
+              url('./assets/coastal-car-v2.jpg') center 55% / cover;
+}
+.contact-intro > p { margin: 0 0 22px; color: #d2e2e8; }
+.contact-scene-label {
+  position: absolute;
+  right: 6%;
+  bottom: 16px;
+  color: #d5e8ef;
+  font-size: 9px;
+  letter-spacing: .11em;
+}
+.contact-layout {
+  gap: clamp(24px, 6vw, 96px);
+  background: radial-gradient(ellipse at 8% 30%, #214656, #101e29 65%);
+  color: #f1f6f7;
+  align-items: start;
+}
+.contact-layout aside > .eyebrow, .contact-layout aside > p { color: #b9d6df; }
+.contact-layout .contact-line > span { color: #a5d9e3; }
+.contact-layout .contact-line p { color: #c7dce4; }
+.contact-layout .contact-line { border-color: #70929c; }
+.contact-layout aside > .review-inline { color: #c5dce4; font-size: 12px; }
+.form-panel {
+  min-width: 0;
+  border: 1px solid #b2c6c9;
+  border-top: 3px solid #69b9cb;
+  background: #e7efee;
+  color: #15303c;
+  box-shadow: 0 18px 48px #050d1855;
+}
+.form-panel > p { color: #435c66; font-size: 13px; }
+.form-grid label { min-width: 0; }
+.form-grid input, .form-grid select, .form-grid textarea {
+  max-width: 100%;
+  background: #f9fcfb;
+  border-color: #7e9aa6;
+}
+.form-grid input[readonly], .form-grid textarea[readonly], .form-grid select:disabled {
+  background: #dae5e6;
+  color: #3d5660;
+}
+.form-panel .sensitive-note, .form-panel .consent { color: #3c5560; font-size: 12px; }
+.form-panel .submit { min-width: 158px; }
+.form-panel .submit:hover { background: #24566a; color: #fff; }
+.form-panel .submit:disabled { opacity: .65; cursor: wait; }
+.form-panel .success, .form-panel .error { margin-top: 15px; }
+.locations { background: #142630; }
+
+@media (max-width: 1020px) {
+  html { scroll-padding-top: 120px; }
+  .site-header {
+    min-height: 0;
+    padding: 5px 4% 3px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 2px 9px;
+  }
+  .site-header .brand { grid-column: 1; grid-row: 1; }
+  .site-header .menu-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 5px;
+    min-height: 44px;
+    background: transparent;
+    border: 1px solid #547280;
+    border-radius: 3px;
+    color: #edf6f9;
+    font-size: 11px;
+  }
+  .site-header .menu-toggle span { font-size: 14px; }
+  .site-header .nav-cta { grid-column: 3; grid-row: 1; padding: 6px 8px; gap: 5px; font-size: 11px; }
+  .site-header .nav-cta span { font-size: 14px; }
+  .header-contact {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    border: 0;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .header-contact a { min-height: 34px; }
+  .site-header nav {
+    display: none;
+    position: absolute;
+    inset: 100% 0 auto;
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 10px 5% 16px;
+    background: #101f2a;
+    border-bottom: 1px solid #4f6b78;
+    box-shadow: 0 16px 26px #0008;
+  }
+  .site-header nav.open { display: grid; justify-content: stretch; gap: 2px; font-size: 15px; }
+  .site-header nav a { min-height: 44px; }
+}
+@media (max-width: 760px) {
+  .site-header .brand { gap: 6px; font-size: 14px; }
+  .site-header .brand svg { width: 26px; flex-shrink: 0; }
+  .site-header .brand small { font-size: 6px; }
+  .service-hero { min-height: 0; }
+  .service-hero::before {
+    background-image: linear-gradient(180deg, #0b1821f5 14%, #0b182193 75%, #0b1821f0), url('./assets/cockpit-mobile.jpg');
+  }
+  .service-product { height: clamp(235px, 58vw, 350px); }
+  .product-detail { grid-template-columns: minmax(0, 1fr); }
+  .contact-intro { min-height: 380px; }
+  .contact-visual {
+    background-image: linear-gradient(90deg, #0b1924f0, #0b192487), url('./assets/coastal-car-mobile-v2.jpg');
+  }
+  .contact-scene-label { font-size: 8px; }
+  .form-grid input, .form-grid select, .form-grid textarea { font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .service-hero-copy, .contact-intro > :not(.contact-visual) { animation: interior-appear 420ms ease-out both; }
+  @keyframes interior-appear {
+    from { opacity: .72; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+  .button:hover { transform: none; }
+}
