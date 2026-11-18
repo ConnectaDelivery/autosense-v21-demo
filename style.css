@@ -407,3 +407,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     background-repeat: no-repeat;
   }
 }
+
+/* V2.4 — language controls and final product comparison, no change to the opening. */
+.site-header{grid-template-columns:auto minmax(0,1fr) auto auto auto;gap:clamp(8px,1.2vw,20px);padding-inline:4%}
+.language-switch{display:flex;gap:3px;align-items:center}
+.language-switch button{background:transparent;border:1px solid transparent;color:#c7dde7;min-height:44px;padding:7px;font-size:14px;border-radius:3px}
+.language-switch button[aria-pressed=true]{border-color:#5cd2eb;background:#16374c;color:#fff}
+.scale-phone{position:absolute;right:-12%;top:23%;height:60%;aspect-ratio:0.48;border:3px solid #596470;border-radius:clamp(12px,2vw,25px);background:linear-gradient(120deg,#d6dce2,#4d5861 12%,#a3abb5 65%,#353f49);padding:3px;box-shadow:12px 25px 35px #0009;opacity:0;pointer-events:none}
+.phone-screen{position:relative;width:100%;height:100%;border:5px solid #0d1219;border-radius:inherit;overflow:hidden;background:radial-gradient(ellipse at 90% 70%,#4991b5,transparent 60%),linear-gradient(145deg,#10253a,#263e62 45%,#0b1727);color:#e8f5ff;text-align:center}
+.phone-screen i{position:absolute;top:6px;left:29%;width:42%;height:4%;border-radius:20px;background:#080e14}
+.phone-screen span{display:block;padding-top:39%;font-size:clamp(18px,2.6vw,40px);letter-spacing:-.05em;font-weight:300}
+.phone-screen b{position:absolute;bottom:6px;left:30%;width:40%;height:3px;background:#d8e4ed;border-radius:10px}
+.scale-caption{position:absolute;bottom:-1%;left:-18%;right:-15%;text-align:center;opacity:0;pointer-events:none}
+.scale-caption strong{display:block;font-size:clamp(18px,1.8vw,25px);color:#e8f6ff;font-weight:500}
+.scale-caption>span{display:block;margin:8px auto 0;max-width:350px;font-size:12px;line-height:1.5;color:#bdd2e2}
+.hero-device{transform-origin:center;object-fit:contain}
+.hero.reduced .hero-device{transform:translate(-24%,-3%) scale(.86)!important}
+.hero.reduced .scale-phone,.hero.reduced .scale-caption{opacity:1!important;transform:none!important}
+.hero.reduced .product-signature{visibility:hidden!important}
+html[lang=es] .hero h1{font-size:clamp(60px,6.6vw,98px)}
+@media(min-width:1021px) and (max-width:1250px){.site-header nav{font-size:11px;gap:12px}.site-header .brand{font-size:17px}.header-contact{font-size:11px;padding-left:8px}.language-switch button{font-size:12px;padding:5px}.site-header .nav-cta{font-size:12px}}
+@media(max-width:1020px){.site-header{grid-template-columns:minmax(0,1fr) auto auto;padding-inline:4%;gap:2px 7px}.language-switch{grid-column:1 / -1;grid-row:3;justify-content:flex-end;border-top:1px solid #284353}.language-switch button{min-height:36px;font-size:14px;padding:5px 10px}.header-contact{flex-wrap:wrap;gap:0 8px}html{scroll-padding-top:165px}.site-header nav{max-height:55vh}}
+@media(max-width:760px){.film-product{width:59%;right:14%;top:375px;height:275px}.scale-phone{right:-15%;top:22%;height:62%;border-width:2px;padding:2px}.phone-screen{border-width:3px}.scale-caption{bottom:-22%;left:-23%;right:-26%}.scale-caption>span{font-size:12px;margin-top:5px}.scale-caption strong{font-size:18px}.sequence-controls{bottom:32px}.film-buttons button{font-size:12px;min-height:44px}.film-buttons{gap:8px}.sequence-controls #scene-label{font-size:11px}html[lang=es] .hero h1{font-size:clamp(43px,12.5vw,76px)}}
+@media(max-width:360px){.film-product{top:400px;height:270px;width:62%;right:13%}.scale-caption{bottom:-27%}.header-contact{font-size:11px}.site-header .nav-cta{font-size:10px;padding:6px}.site-header .brand{font-size:13px}.hero{min-height:900px;height:900px}html[lang=es] .hero h1{font-size:43px}}
+@media(prefers-reduced-motion:reduce){.hero-device{transform:translate(-24%,-3%) scale(.86)!important}.scale-phone,.scale-caption{opacity:1!important;transform:none!important}.product-signature{visibility:hidden!important}}
+@media(max-width:760px){.scale-caption{left:-16%;right:-16%}}
