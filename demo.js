@@ -1,4 +1,4 @@
-import {initHero} from './hero-sequence.js';
+import {initHero} from './hero-sequence.js?v=24';
 import {initI18n,t,installValidation} from './i18n.js';
 const page=document.body.dataset.demoPage;
 initI18n();
